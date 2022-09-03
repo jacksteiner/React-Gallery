@@ -1,7 +1,22 @@
+import Axios from 'axios';
 import React from 'react';
 import './App.css';
 
 function App() {
+
+  const [galleryItems, setGalleryItems] = useState('');
+  // const [galleryList, setGalleryList] = useState('');
+
+  const fetchGallery = () => {
+    Axios({
+      method: 'GET',
+      url: '/gallery',
+    }).then(response => {
+      setGalleryItems
+    })
+  }
+
+
     return (
       <div className="App">
         <header className="App-header">
