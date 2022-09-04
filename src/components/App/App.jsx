@@ -2,6 +2,7 @@ import Axios from 'axios';
 import React from 'react';
 import {useState, useEffect} from 'react';
 import GalleryList from '../GalleryList/GalleryList';
+import GalleryItem from '../GalleryItem/GalleryItem';
 import './App.css';
 
 function App() {
@@ -26,6 +27,8 @@ function App() {
     });
   }
 
+  console.log(galleryItems);
+
 
     return (
       <div className="App">
@@ -33,7 +36,8 @@ function App() {
           <h1 className="App-title">Gallery of My Life</h1>
         </header>
         <p>Gallery goes here</p>
-        <GalleryList list={galleryItems}/>
+        <GalleryList listProp={galleryItems}/>
+        <GalleryItem />
         {/* <img src="images/goat_small.jpg"/> */}
       </div>
     );

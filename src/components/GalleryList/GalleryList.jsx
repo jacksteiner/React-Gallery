@@ -1,19 +1,18 @@
 
-import { useState, useEffect } from 'react';
-import galleryItems from '../../../server/modules/gallery.data';
-
-
-function GalleryList({galleryItems}){
+function GalleryList({listProp}){
     return (
         <>
+        <p>Test</p>
         <ul>
             {
-                galleryItems.map(galleryItems => {
+                listProp.map(galleryItems => {
+                    return(
                     <li key={galleryItems.id}>
                         <img src={galleryItems.path} />
                         Description: {galleryItems.description}
                         Likes: {galleryItems.likes}
                     </li>
+                    )
                 })
             }
         </ul>
