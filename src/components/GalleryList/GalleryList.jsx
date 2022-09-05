@@ -1,23 +1,25 @@
+import Container from '@mui/material/Container';
+import Button  from '@mui/material/Button';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
+import GalleryItem from '../GalleryItem/GalleryItem';
 
-function GalleryList({listProp}){
+function GalleryList({galleryItems}){
     return (
-        <>
-        <p>Test</p>
-        <ul>
+        <Grid container spacing={2}>
             {
-                listProp.map(galleryItems => {
+                galleryItems.map(galleryItems => {
                     return(
-                    <li key={galleryItems.id}>
-                        <img src={galleryItems.path} />
-                        Description: {galleryItems.description}
-                        Likes: {galleryItems.likes}
-                    </li>
+                    <GalleryItem key={galleryItems.id} galleryItems={galleryItems}/>
                     )
                 })
             }
-        </ul>
-        </>
-    )
+        </Grid>
+    );
 }
 
 export default GalleryList
