@@ -10,20 +10,18 @@ import Typography from '@mui/material/Typography';
 import {useState} from 'react';
 
 function GalleryItem ({galleryItems}) {
-    // const [toggle, setToggle] = useState(false);
+    const [toggle, setToggle] = useState(true);
+    
     return (
-        <Grid item md={8}>
-        <Card>
-            <CardMedia 
-            component='img'
-            height='1000'
-            image={galleryItems.path}>
-            {/* <img src={galleryItems.path} /> */}
-            </CardMedia>
-            <p>Description: {galleryItems.description} </p>
+        <div>
+            {toggle ? (
+                    <img onClick={() => setToggle(!toggle)} src={galleryItems.path} />
+                ) : (
+                    <p onClick={() => setToggle(!toggle)}> DESCRIPTION: {galleryItems.description} </p>
+            )}
+            
             <p>Likes: {galleryItems.likes}</p>
-         </Card>
-         </Grid>
+        </div>
     )
 }
 
