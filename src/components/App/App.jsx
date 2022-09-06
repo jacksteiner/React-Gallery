@@ -2,7 +2,7 @@ import Axios from 'axios';
 import React from 'react';
 import {useState, useEffect} from 'react';
 import GalleryList from '../GalleryList/GalleryList';
-import GalleryItem from '../GalleryItem/GalleryItem';
+// import GalleryItem from '../GalleryItem/GalleryItem';
 import Container from '@mui/material/Container';
 import Button  from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
