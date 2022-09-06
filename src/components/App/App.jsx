@@ -16,13 +16,14 @@ import './App.css';
 function App() {
 
   const [galleryItems, setGalleryItems] = useState([]);
-  const [toggle, setToggle] = useState(false);
+  // const [toggle, setToggle] = useState(false);
   // console.log(setGalleryItems)
   // const [galleryList, setGalleryList] = useState('');
 
   useEffect(() => {
     fetchGallery();
   }, [])
+
 
   const fetchGallery = () => {
     Axios({
@@ -36,6 +37,20 @@ function App() {
     });
   }
 
+  const likePhoto = (galleryId) => {
+    console.log(galleryId)
+    Axios({
+      method: 'PUT',
+      url: `gallery/like/${galleryId}`,
+    }).then(response =>{
+      fetchGallery();
+    }).catch(error => {
+        console.log(error);
+        alert('Something went wrong')
+    });
+  };
+
+
   console.log(galleryItems);
 
 
@@ -45,11 +60,14 @@ function App() {
           <h1 className="App-title">Gallery of My Life</h1>
         </header>
         <Container>
-        <GalleryList galleryItems={galleryItems}/>
+        <GalleryList galleryItems={galleryItems}
+        likePhoto={likePhoto}/>
         </Container>
         {/* <img src="images/goat_small.jpg"/> */}
       </div>
     );
 }
+
+
 
 export default App;

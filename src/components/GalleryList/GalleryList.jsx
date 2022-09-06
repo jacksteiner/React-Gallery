@@ -8,13 +8,13 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import GalleryItem from '../GalleryItem/GalleryItem';
 
-function GalleryList({galleryItems}){
+function GalleryList({galleryItems, likePhoto}){
     return (
         <Grid container spacing={2}>
             {
                 galleryItems.map(galleryItems => {
                     return(
-                    <GalleryItem key={galleryItems.id} galleryItems={galleryItems}/>
+                    <GalleryItem key={galleryItems.id} galleryItems={galleryItems} likePhoto={likePhoto}/>
                     )
                 })
             }

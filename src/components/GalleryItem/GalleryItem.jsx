@@ -7,20 +7,30 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia  from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
+import Axios from 'axios';
 
-function GalleryItem ({galleryItems}) {
+function GalleryItem ({galleryItems, likePhoto}) {
+
     const [toggle, setToggle] = useState(true);
-    
+
+    // function increaseLikes(){
+    //     console.log('Clicking Like button')
+    //     console.log(galleryItems.likes);
+    //     galleryItems.likes +=1
+    //   }
+
     return (
         <div>
             {toggle ? (
-                    <img onClick={() => setToggle(!toggle)} src={galleryItems.path} />
+                    <img onClick={() => setToggle(!toggle)}  src={galleryItems.path} />
                 ) : (
-                    <p onClick={() => setToggle(!toggle)}> DESCRIPTION: {galleryItems.description} </p>
+                    <div onClick={() => setToggle(!toggle)}> <img src={galleryItems.path}/> <br>
+                    </br>DESCRIPTION: {galleryItems.description} 
+                    </div>
             )}
             
-            <p>Likes: {galleryItems.likes}</p>
+            <button onClick={()  => likePhoto(galleryItems.id)}>Like:{galleryItems.likes}</button>
         </div>
     )
 }
@@ -43,3 +53,4 @@ export default GalleryItem
 </Button>
 
 </Card> */}
+// style={{width: 400 + 'px'}}
